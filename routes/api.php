@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use  App\Http\Controllers ;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('/employee',[\App\Http\Controllers\EmployeeController::class]);
+//Lista de de empleados
+Route::get('/employee',[Controllers\EmployeeController::class,'index']);
+//Crear empleados
+Route::post('/employee',[Controllers\EmployeeController::class,'store']);
+//ver empleados
+Route::get('/employee/{id}',[Controllers\EmployeeController::class,'show']);
+//Actualizar empleados
+Route::put('/employee/{id}',[Controllers\EmployeeController::class,'update']);
+//Eliminar empleados
+Route::delete('/employee/{id}',[Controllers\EmployeeController::class,'destroy']);

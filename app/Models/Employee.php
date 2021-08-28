@@ -14,10 +14,10 @@ class Employee extends Model
     protected $guarded = ['id'];
 
     static $rules = [
-      'email'               => 'required|email',
-      'name'                => 'required',
-      'last_name'           => 'required',
-      'second_last_name'    => 'required',
+      'email'               => 'required|email|unique:employees,email',
+      'name'                => 'required|regex:/^[a-zA-Z\-_]+$/',
+      'last_name'           => 'required|regex:/^[a-zA-Z\-_]+$/',
+      'second_last_name'    => 'required|regex:/^[a-zA-Z\-_]+$/',
       'code'                => 'required',
       'status'              => 'required',
     ];

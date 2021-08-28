@@ -18,7 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('second_last_name');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('type_of_contract');
             $table->string('code');
             $table->enum('status',['activo','inactivo']);
